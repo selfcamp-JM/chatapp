@@ -5,6 +5,8 @@
   "dependencies": {
     "@pusher/chatkit": "0.7.12",
     "chatkit": "0.0.1-security",
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9",
     "pusher": "^2.2.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -13,7 +15,9 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "concurrently 'npm run react' 'npm run server'",
+    "react": "react-scripts start",   
+    "server":"nodemon src/server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
